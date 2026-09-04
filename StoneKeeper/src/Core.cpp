@@ -1,4 +1,4 @@
-#include "StoneKeeperLib/Core.h"
+#include "StoneKeeper/Core.h"
 #include <iostream>
 
 namespace Engine {
