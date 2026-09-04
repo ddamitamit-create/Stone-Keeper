@@ -1,5 +1,8 @@
-add_library(StoneKeeper STATIC
-    src/Core.cpp
+add_library(StoneKeeper SHARED
+    src/Application.cpp
+        include/StoneKeeper/Core.h
+        src/Core.cpp
+        include/StoneKeeper/EntryPoint.h
 )
 
 target_include_directories(StoneKeeper PUBLIC
