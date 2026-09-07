@@ -1,6 +1,6 @@
 #pragma once
 
-#include "StoneKeeper/Core.h"
+#include "Core.h"
 
 namespace Engine {
 
