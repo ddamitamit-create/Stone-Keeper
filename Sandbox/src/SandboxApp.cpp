@@ -6,6 +6,7 @@ public:
     ~SandboxApp() {}
 };
 
-Engine::Application* Engine::CreateApplication() {
+Engine::Application* Engine::CreateApplication()
+{
     return new SandboxApp();
 }

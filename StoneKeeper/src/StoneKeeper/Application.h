@@ -5,14 +5,15 @@
 namespace Engine {
 
 class ENGINE_API Application {
-public:
-    Application();
-    virtual ~Application();
 
-    void Run();
-};
+    public:
+        Application();
+        virtual ~Application();
 
-// Defined by the client application (e.g. Sandbox)
-Application* CreateApplication();
+        void Run();
+    };
+
+    // Defined by the client application (e.g. Sandbox)
+    Application* CreateApplication();
 
 }
