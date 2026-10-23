@@ -1,5 +1,4 @@
-#include "StoneKeeper/Application.h"
-#include "StoneKeeper/EntryPoint.h"
+#include "../../StoneKeeper/src/StoneKeeper.h"
 
 class SandboxApp : public Engine::Application {
 public:
@@ -7,6 +6,7 @@ public:
     ~SandboxApp() {}
 };
 
-Engine::Application* Engine::CreateApplication() {
+Engine::Application* Engine::CreateApplication()
+{
     return new SandboxApp();
 }
