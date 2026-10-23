@@ -1,4 +1,4 @@
-#include "StoneKeeper/Application.h"
+#include "Application.h"
 #include <iostream>
 
 namespace Engine {
