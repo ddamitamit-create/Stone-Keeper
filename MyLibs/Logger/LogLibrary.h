@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <string_view>
 
 enum class LogLevel {Trace, Debug, Info, Warning, Error, Fatal}; //the severity of the message
 
@@ -37,7 +38,7 @@ class Logger {
 
     template<class... Args>
     void Log(LogLevel lvl, std::format_string<Args...> fmt, Args&&... args) { //making the actual record and writing it
-            if (lvl < m_MinLevel || lvl != LogLevel::Debug) return;
+            if (lvl < m_MinLevel && lvl != LogLevel::Debug) return;
             Record r{lvl, m_Name, std::format(fmt, std::forward<Args>(args)...)};
             for (auto& s : m_Sinks) s->Write(r);
         }
@@ -47,3 +48,17 @@ class Logger {
         LogLevel m_MinLevel = LogLevel::Trace;
         std::vector < std::shared_ptr<Sink>> m_Sinks;
 };
+
+class Log {
+    public:
+        static void Init();
+        static Logger& Core();
+        static Logger& Client();
+    private:
+        static std::shared_ptr<Logger> s_Core;
+        static std::shared_ptr<Logger> s_Client;
+};
+
+//macros
+#define ENGINE_LOG(level, ...) ::Log::Core().Log(LogLevel::level, __VA_ARGS__)
+#define CLIENT_LOG(level, ...) ::Log::Client().Log(LogLevel::level, __VA_ARGS__)
