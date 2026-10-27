@@ -22,6 +22,8 @@ namespace {
             void Write(const Record& r) override {
                 std::lock_guard<std::mutex> lock(m_lock);
                 std::cout << ToColor(r.level) <<
+                    std::format("[{:%H:%M:%S}] ",
+                        std::chrono::floor<std::chrono::milliseconds>(std::chrono::system_clock::now()))<<
                     "[" << ToString(r.level) <<"] "<<
                     r.loggerName << ": "
                     << r.message << RESET << '\n';

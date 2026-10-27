@@ -1,13 +1,13 @@
 #include "Application.h"
-#include <iostream>
-
+#include <LogLibrary.h>
 namespace Engine {
 
 Application::Application() {}
 Application::~Application() {}
 
 void Application::Run() {
-    std::cout << "Hello from the Engine!\n";
+    Log::Init();
+    ENGINE_LOG(Info, "Hello from the Engine!, we are officially running");
 }
 
 }
