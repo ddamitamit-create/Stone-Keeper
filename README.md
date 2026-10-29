@@ -2,6 +2,7 @@
 game engine
 
 step 1: update changes and create a branch
+git checkout main
 git pull                       # Update local main
 git checkout -b branch_name  # Create and switch to new branch
 

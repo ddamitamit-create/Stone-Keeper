@@ -1,4 +1,4 @@
-#include "../../StoneKeeper/src/StoneKeeper.h"
+#include "../../StoneKeeper/StoneKeeper.h"
 
 class SandboxApp : public Engine::Application {
 public:
